@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    @apply font-body text-idz-soot bg-idz-alabaster;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-md border border-white/30 shadow-lg rounded-soft;
+  }
+  .sidebar-link {
+    @apply flex items-center gap-3 px-4 py-3 rounded-soft text-sm font-medium text-white/80 hover:bg-white/10 hover:text-white transition-all cursor-pointer;
+  }
+  .sidebar-link-active {
+    @apply flex items-center gap-3 px-4 py-3 rounded-soft text-sm font-medium bg-white/20 text-white;
+  }
+  .status-pending {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-700;
+  }
+  .status-accepted {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-700;
+  }
+  .status-rejected {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-red-100 text-red-600;
+  }
+  .btn-primary {
+    @apply bg-idz-action hover:bg-[#5a9118] text-white font-semibold py-3 px-6 rounded-soft transition-all duration-200 shadow-sm hover:shadow-md;
+  }
+  .btn-outline-forest {
+    @apply border-2 border-idz-forest text-idz-forest hover:bg-idz-forest hover:text-white font-semibold py-3 px-6 rounded-soft transition-all duration-200;
+  }
+  .btn-outline-red {
+    @apply border-2 border-red-500 text-red-500 hover:bg-red-50 font-semibold py-3 px-6 rounded-soft transition-all duration-200;
+  }
+  .input-field {
+    @apply w-full border border-gray-200 rounded-soft px-4 py-3 text-sm text-idz-soot bg-white focus:outline-none focus:ring-2 focus:ring-idz-action/50 focus:border-idz-action transition-all;
+  }
+  .step-active {
+    @apply bg-idz-forest text-white font-semibold;
+  }
+  .step-inactive {
+    @apply bg-gray-100 text-gray-500 font-medium;
+  }
+}
+
+/* RTL support */
+[dir="rtl"] .sidebar-link,
+[dir="rtl"] .sidebar-link-active {
+  flex-direction: row-reverse;
+}
+
+/* Smooth page transitions */
+.page-enter {
+  opacity: 0;
+  transform: translateY(8px);
+}
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 200ms, transform 200ms;
+}
